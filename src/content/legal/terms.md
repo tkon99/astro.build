@@ -1,5 +1,4 @@
 ---
-layout: ../layouts/Legal.astro
 title: Terms of Service
 updated_date: Jan 6, 2022
 description: Astro's terms of service

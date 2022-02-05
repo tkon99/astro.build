@@ -1,14 +1,14 @@
 import { parse, isBefore } from 'date-fns';
 
 export async function getAllPosts() {
-  const files = await import.meta.glob("./**/*.md");
+  const files = await import.meta.glob("./blog/**/*.md");
   const posts = (
     await Promise.all(
       Object.values(files).map((importFile: any, index) =>
         importFile().then((res) => {
           const { title, description, authors, publishDate } = res.frontmatter;
           const href = Object.keys(files)
-            [index].replace(/^\./, "/blog")
+            [index].replace(/^\./, "")
                 .replace(/\.md$/, "");
           return {
             title,
@@ -25,5 +25,15 @@ export async function getAllPosts() {
     if (isBefore(b.publishDate, a.publishDate)) return -1;
     return 0;
   });
+  return posts;
+}
+
+
+export async function getAllLegalPages() {
+  const files = await import.meta.glob("./legal/**/*.md");
+  const posts = 
+    await Promise.all(
+      Object.values(files).map((importFile: any) => importFile())
+    );
   return posts;
 }

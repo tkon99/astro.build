@@ -1,7 +1,7 @@
 ---
 import Page from '../../layouts/Page.astro';
-import Card from '../../components/blog/Card.astro';
-import { getAllPosts } from '../../posts';
+import Card from './components/blog/Card.astro';
+import { getAllPosts } from '../../posts/index.js';
 
 const posts = await getAllPosts();
 ---

@@ -1,0 +1,17 @@
+---
+import Layout from './Layout.astro';
+
+export async function getStaticPaths({}) {
+	const posts = await Astro.fetchContent('../content/legal/*.md');
+	return posts.map((p) => {
+		return {
+			params: { slug: p.slug },
+			props: { post: p },
+		}
+	});
+}
+
+const { post } = Astro.props;
+---
+
+<Layout content={post} />

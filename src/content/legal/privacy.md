@@ -1,7 +1,6 @@
 ---
 setup: |
-    import Layout from '../layouts/Legal.astro'
-    import Panel from '../components/Panel.astro'
+    import Panel from '../../components/Panel.astro'
 title: Privacy Policy
 updated_date: Jan 6, 2022
 description: Astro's privacy policy
